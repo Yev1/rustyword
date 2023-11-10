@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Webpage</title>
+    <style>
+        :root {
+        --word-length: 5;
+        --square-side: 100px;
+        --grid-width: calc(var(--square-side)*5+10px);
+    	}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set the height of the body to the full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(var(--word-length), 1fr);
+            grid-gap: 2px;
+            width: var(--grid-width);
+        }
+        .square {
+            width: var(--square-side);
+            height: var(--square-side);
+            border: 1px solid black;
+            display: flex;
+            margin: 1px;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            background-color: white;
+        }
+        .notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid-container"></div>
+    
+    <script>
+        const gridContainer = document.getElementById('grid-container');
+        
+        // Create a 5x5 grid of squares using JavaScript
+        for (let i = 0; i < 25; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            gridContainer.appendChild(square);
+        }
+    </script>
+    </div>
+    <div type = "text" margin: 100px, 20px>
+    	<font size = 5>
+    	Guess a 5-letter word. Hit <b>Enter</b>. 
+    	
+		<div style.justify-content="center"><font color=green size = 6>&#x25A0;</font>
+		Right letter, right place </div>
+		
+		<div style.justify-content="center"><font color=yellow size = 6>&#x25A0;</font>
+		Right letter, wrong place </div>
+		
+		<div style.justify-content="center"><font color=gray size = 6>&#x25A0;</font>
+		Wrong letter </div>
+    	<br>
+    <input type="text" id="input" placeholder="Type letters" style.display = ''></input>
+    </div>
+    <div class="notification" id="notification-box"></div>
+	<script src="script.js"></script>
+	
+	
+</body>
+</html>
